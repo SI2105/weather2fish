@@ -38,7 +38,7 @@ function App() {
   };
   
   return (
-    <>
+    <div className='App'>
     <Header/>
     <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
     <Hourly/>
@@ -46,7 +46,7 @@ function App() {
     <Wind/>
     <Humidity />
     
-      </>
+      </div>
     
   );
 }
