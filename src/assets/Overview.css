@@ -1,0 +1,11 @@
+.Overview > .result {
+
+    display: flex;
+    justify-content: space-evenly
+}
+
+.result > *{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
