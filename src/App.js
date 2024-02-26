@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { useState, useEffect, useCallback } from 'react';
 import './assets/App.css';
 import Header from './Header';
