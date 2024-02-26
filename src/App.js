@@ -13,7 +13,7 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const fetchData = useCallback(async () =>{
     try{
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}` //Replace API_KEY with your API KEY
       );
       if (!response.ok) {
         throw new Error('Network response was not ok');
