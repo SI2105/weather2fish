@@ -1,4 +1,4 @@
-function Overview({weatherData, city ,handleSubmit, handleInputChange}) {
+export default function Overview({weatherData, city ,handleSubmit, handleInputChange}) {
     return (
       <div className="Overview">
         
@@ -27,6 +27,4 @@ function Overview({weatherData, city ,handleSubmit, handleInputChange}) {
       )}
       </div>
     );
-  }
-  
-  export default Overview;  
+  } 
