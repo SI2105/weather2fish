@@ -1,6 +1,6 @@
 function Precipitation() {
     return (
-      <div className="Header">
+      <div className="Precipitation">
         
 
         <p>I am the Precipitation</p>

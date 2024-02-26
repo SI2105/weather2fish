@@ -1,6 +1,6 @@
 function Hourly() {
     return (
-      <div className="Header">
+      <div className="Hourly">
         
 
         <p>I am the Hourly</p>

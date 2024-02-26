@@ -1,6 +1,6 @@
 function Humidity() {
     return (
-      <div className="Header">
+      <div className="Humidity">
         
 
         <p>I am the Humidity</p>

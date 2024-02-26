@@ -1,6 +1,6 @@
 function Wind() {
     return (
-      <div className="Header">
+      <div className="Wind">
         
 
         <p>I am the Wind</p>
