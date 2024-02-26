@@ -2,11 +2,19 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
 import Overview from './Overview';
+import Hourly from './Hourly';
+import Precipitation from './Precipitation';
+import Wind from './Wind';
+import Humidity from './Humidity';
 function App() {
   return (
     <>
     <Header/>
     <Overview/>
+    <Hourly/>
+    <Precipitation/>
+    <Wind/>
+    <Humidity />
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
