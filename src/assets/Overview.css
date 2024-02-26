@@ -1,11 +1,26 @@
 .Overview > .result {
 
     display: flex;
-    justify-content: space-evenly
+
+    flex-direction: column;
+    background: url('szabo-viktor-28ZbKOWiZfs-unsplash1.png');
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    min-width: 55rem;
+    min-height: 14rem;
+    border-style: solid;
+    margin-inline:20% ;
+
 }
 
 .result > *{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+.result h2{
     text-align: center;
 }
