@@ -15,7 +15,8 @@ export default function Overview({weatherData, city ,handleSubmit, handleInputCh
             <h2>{regionNamesInEnglish.of(weatherData.sys.country)}</h2>
           </div>
             
-          <div className="icons">
+          <div className="icons-date">
+            <h2 className='date'>{new Date().toDateString()}</h2>
             <img src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt='' ></img>
           </div>
 
