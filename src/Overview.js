@@ -4,15 +4,11 @@ export default function Overview({weatherData, city ,handleSubmit, handleInputCh
     return (
       <div className="Overview">
 
-        <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='Enter city Name' value={city} onChange={handleInputChange}/>
-        <button type='submit'>Get Weather</button>
-    </form>
-    {weatherData ? (
+        {weatherData ? (
         <div className='result' >
           <div className="names">
             <h2>{weatherData.name}</h2>
-            <h2>{regionNamesInEnglish.of(weatherData.sys.country)}</h2>
+            <h2>{regionNamesInEnglish.of(weatherData.sys.country)}</h2> 
           </div>
             
           <div className="icons-date">
