@@ -38,7 +38,7 @@ function App() {
   
   return (
     <div className='App'>
-    <Header/>
+    <Header city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
     <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
     <Hourly/>
     <Weekly weatherData={weatherData} city={city}/>
