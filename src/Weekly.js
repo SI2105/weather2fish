@@ -24,7 +24,6 @@ function Weekly({weatherData, city }) {
 
     const calculateFishActivity = (day) => {
       const activities = ["Low", "Medium", "High"];
-      console.log(day.temp.day)
       let randomActivity = Math.floor(Math.random() * activities.length)
       let activity;
       if (randomActivity == 0){
