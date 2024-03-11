@@ -6,6 +6,8 @@ import Hourly from './Hourly';
 import Precipitation from './Precipitation';
 import Wind from './Wind';
 import Humidity from './Humidity';
+import Weekly from './Weekly';
+
 import { API_KEY } from './config';
 function App() {
   const [city, setCity] = useState('');
@@ -45,8 +47,9 @@ function App() {
     <Precipitation/>
     <Wind/>
     <Humidity />
+    <Weekly weatherData={weatherData} city={city}/>
     
-      </div>
+    </div>
     
   );
 }
