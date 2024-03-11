@@ -3,9 +3,6 @@ import './assets/App.css';
 import Header from './Header';
 import Overview from './Overview';
 import Hourly from './Hourly';
-import Precipitation from './Precipitation';
-import Wind from './Wind';
-import Humidity from './Humidity';
 import Weekly from './Weekly';
 
 import { API_KEY } from './config';
@@ -44,9 +41,6 @@ function App() {
     <Header/>
     <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
     <Hourly/>
-    <Precipitation/>
-    <Wind/>
-    <Humidity />
     <Weekly weatherData={weatherData} city={city}/>
     
     </div>
