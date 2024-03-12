@@ -4,6 +4,7 @@ import Header from './Header';
 import Overview from './Overview';
 import Hourly from './Hourly';
 import Weekly from './Weekly';
+import Map from './Map';
 
 import { API_KEY } from './config';
 function App() {
@@ -42,7 +43,7 @@ function App() {
     <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
     <Hourly/>
     <Weekly weatherData={weatherData} city={city}/>
-    
+    <Map weatherData={weatherData}/>
     </div>
     
   );
