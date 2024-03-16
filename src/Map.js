@@ -15,14 +15,18 @@ function ChangeMap({center}) {
 }
 
 
-function Map({weatherData}) {
+function Map({weatherData,portData}) {
   
-    
     
     
   const customIcon = new Icon({
     iconUrl: require('./assets/marker.png'),
     iconSize: [25,40]
+  })
+
+  const portIcon = new Icon({
+    iconUrl: require('./assets/port-sign.png'),
+    iconSize: [40,40]
   })
 
     return (
@@ -35,9 +39,24 @@ function Map({weatherData}) {
             
             {weatherData && weatherData.coord && (<Marker position={[weatherData.coord.lat, weatherData.coord.lon ]} icon={customIcon}>
                 <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
+                Temperature : {weatherData.main.temp} C° <br /> 
                 </Popup>
+            
+            
             </Marker>)}
+
+            {weatherData && portData && portData.elements && (
+              portData.elements.filter((port, i)=> (port.tags.name) ).map((port, i)=>(
+                  <Marker key = {i} position={[port.lat, port.lon]} icon={portIcon}>
+                <Popup>
+                  {port.tags.name} <br /> 
+                </Popup>
+                </Marker>
+              ))
+            )
+            }
+
+
 
             {weatherData && weatherData.coord && <ChangeMap center={[weatherData.coord.lat, weatherData.coord.lon ]}></ChangeMap>}
 
