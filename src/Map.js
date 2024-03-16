@@ -7,7 +7,7 @@ import { Icon } from "leaflet";
 function ChangeMap({center}) {
   const map = useMap();
   useEffect(()=>{
-    map.setView(center);
+    map.setView(center,12);
 
   }, [center,map])
   
@@ -31,7 +31,7 @@ function Map({weatherData,portData}) {
 
     return (
       <div className="map">
-        <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+        <MapContainer center={[51.505, -0.09]} zoom={5} scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
