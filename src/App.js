@@ -5,11 +5,13 @@ import Overview from './Overview';
 import Hourly from './Hourly';
 import Weekly from './Weekly';
 import Map from './Map';
+import axios from 'axios';
 
 import { API_KEY } from './config';
 function App() {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
+  const [portData, setPortData] = useState(null);
   const [weeklyData, setWeeklyData] = useState(null);
   const fetchData = useCallback(async () =>{
     try{
@@ -26,6 +28,30 @@ function App() {
 
     }
   }, [city])
+
+  const getPorts = async (radius) => {
+    const response = await axios.get(`https://overpass-api.de/api/interpreter?data=[out:json];nwr[harbour](around:${radius},${weatherData.coord.lat},${weatherData.coord.lon});out center;`);  
+    const data = response.data
+
+    for (var i = 0; i < data.elements.length; i++){
+      if(data.elements[i].center){
+        data.elements[i].lat = data.elements[i].center.lat
+        data.elements[i].lon = data.elements[i].center.lon
+      }
+
+    }
+    setPortData(data)
+  
+    console.log(data)
+    return data
+  }
+
+  useEffect(()=>{
+    let radius = 100000
+    if(weatherData){
+      getPorts(radius);
+    }
+  }, [weatherData])
 
   // Fetches weekly weather data from OpenWeather API and updates the state of weeklyData
   const fetchWeeklyData = useCallback(async () => {
@@ -57,7 +83,7 @@ function App() {
     <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
     <Hourly/>
     <Weekly weeklyData={weeklyData}/>
-    <Map weatherData={weatherData}/>
+    <Map weatherData={weatherData} portData={portData}/>
     </div>
     
   );

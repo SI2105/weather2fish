@@ -1,4 +1,9 @@
 .leaflet-container {
     height: 50vh;
-    margin-inline: 20%;
+    margin-inline: 2.5%;
+}
+
+.map{
+    background-color: #26A0DA;
+    margin-inline: 20% ;
 }
