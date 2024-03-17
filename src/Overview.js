@@ -1,10 +1,11 @@
 import './assets/Overview.css'
 export default function Overview({weatherData, city ,handleSubmit, handleInputChange}) {
-  const regionNamesInEnglish = new Intl.DisplayNames(['en'], { type: 'region' });
+  const regionNamesInEnglish = new Intl.DisplayNames(['en'], { type: 'region' }); 
+  //Creates Intl.DisplayNames object that will be used for country code to full country name conversion.
     return (
       <div className="Overview">
 
-        {weatherData ? (
+        {weatherData ? ( /* Checks wether the Data has arrived */
         <div className='result' >
           <div className="names">
             <h2>{weatherData.name}</h2>
@@ -24,6 +25,7 @@ export default function Overview({weatherData, city ,handleSubmit, handleInputCh
             </div>
         </div>
       ): (
+        /* Otherwise display loading screen */
         
         <p>Loading weather data...</p>
 
