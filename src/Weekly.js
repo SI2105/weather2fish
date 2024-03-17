@@ -3,18 +3,33 @@ import './assets/Weekly.css';
 
 // This component renders the weekly weather data. API is fetched in App.js and passed down here as a prop whenever user searches for city.
 export default function Weekly({weeklyData}) {
-
   // Calculate to return the fish activity for a given day based on its temperature
   const calculateFishActivity = (day) => {
-    const temperature = Math.round(day.temp.day)
+    const temperature = Math.round(day.temp.day);
+    const windSpeed = day.wind_speed;
+    const humidity = day.humidity; 
+    const weatherCondition = day.weather[0].main; 
+    let fishActivity;
 
     if (temperature >= 20){
-      return <p className="daily-fish-activity">Fish Activity: <b className="green-activity">High</b></p>
+      fishActivity = "High";
     } else if(temperature >= 10 && temperature < 20){
-      return <p className="daily-fish-activity">Fish Activity: <b className="orange-activity">Medium</b></p>
+      fishActivity = "Medium";
     } else {
-      return <p className="daily-fish-activity">Fish Activity: <b className="red-activity">Low</b></p>
+      fishActivity = "Low";
     }
+    if (windSpeed > 5) { 
+      fishActivity = "Low";
+    }
+    if (humidity > 70) { 
+      fishActivity = "Low";
+    }
+    if (weatherCondition === "Rain" || weatherCondition === "Thunderstorm") {
+      fishActivity = "Low";
+    }
+    return <p className="daily-fish-activity">Fish Activity: <b className={`${fishActivity.toLowerCase()}-activity`}>{fishActivity}</b></p>;
+  }
+    
   }
 
   // Responsible for rendering a single day
@@ -41,11 +56,11 @@ export default function Weekly({weeklyData}) {
       </div>
     );
   };
-
   // Loops through all days specified by the API call (if it exists) and renders them by calling getDailyWeather() for each day
   return (
     <>
     {weeklyData ? (
+
       <div className="weekly-container">
         <h2 className="weekly-header">Weekly Forecast</h2>
         <div className="weekly-data">

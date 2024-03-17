@@ -62,6 +62,7 @@ function App() {
       }
       const data = await response.json();
       setWeeklyData(data.list);
+      console.log(weeklyData)
     } catch (error) {
       console.error(error);
     }
