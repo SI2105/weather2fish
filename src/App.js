@@ -10,6 +10,7 @@ import { API_KEY } from './config';
 function App() {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
+  const [weeklyData, setWeeklyData] = useState(null);
   const fetchData = useCallback(async () =>{
     try{
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}` //Replace API_KEY with your API KEY
@@ -18,9 +19,7 @@ function App() {
         throw new Error('Network response was not ok');
       }
       const data = await response.json()
-      setWeatherData(data);
-      console.log(data);
-      
+      setWeatherData(data);     
     }
     catch(error){
       console.error(error);
@@ -28,13 +27,28 @@ function App() {
     }
   }, [city])
 
+  // Fetches weekly weather data from OpenWeather API and updates the state of weeklyData
+  const fetchWeeklyData = useCallback(async () => {
+    try {
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&units=metric&cnt=7&appid=${API_KEY}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      setWeeklyData(data.list);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [city]);
+
   const handleInputChange = (e) => {
     setCity(e.target.value);
   };
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault();
     fetchData();
+    fetchWeeklyData();
   };
   
   return (
@@ -42,7 +56,7 @@ function App() {
     <Header city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
     <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
     <Hourly/>
-    <Weekly weatherData={weatherData} city={city}/>
+    <Weekly weeklyData={weeklyData}/>
     <Map weatherData={weatherData}/>
     </div>
     
