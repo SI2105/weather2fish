@@ -5,6 +5,7 @@ import Overview from './Overview';
 import Hourly from './Hourly';
 import Weekly from './Weekly';
 import Map from './Map';
+import WeatherAlerts from './WeatherAlerts';
 import POIPage from './POIPage/POIPage';
 import axios from 'axios';
 import { API_KEY } from './config';
@@ -83,6 +84,8 @@ function App() {
       getPorts(radius);
       getFishingPoints(radius);
     }
+
+    document.body.style.height = '100%';
   }, [weatherData])
 
   // Fetches weekly weather data from OpenWeather API and updates the state of weeklyData
@@ -188,14 +191,16 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className='App' style={{background: gradientColors}}>
+    <div className='App' style={{ height:'100%', background: gradientColors}}>
       <div className='item1'>
       <Header city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
-      <WeatherAlerts key={`${lat}-${lon}`} lat={lat} lon={lon} />
       </div>
       <Routes>
         <Route path="/" element={
           <>
+            <div className='item2'>
+              <WeatherAlerts key={`${lat}-${lon}`} lat={lat} lon={lon} />
+            </div>
             <div className='item3'>
               <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
             </div>

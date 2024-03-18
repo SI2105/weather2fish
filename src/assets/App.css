@@ -1,23 +1,33 @@
+
 .App {
   display: grid;
-  grid-template-columns: 35% 30% 35%;
-  grid-template-rows: 35% 10% 55%;
+  grid-template-rows: 15% 30% 5% 50%;
+  grid-template-columns: 40% 30% 30%;
   width: 100%;
-  height: 100%;
   background-color: #26A0DA;
 }
 
-.item1 {grid-area: 1/1/2/2}
+
+
+.item1 {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.item2{
+  grid-column: 1;
+  grid-row: 2;
+}
 
 .item3{
   width: 100%;
   height: 100%;
   grid-column: 2;
-  grid-row: 1 / span 2; 
+  grid-row: 1 / span 3; 
 }
 .item4{
   grid-column: 2 / span 2; 
-  grid-row: 3;
+  grid-row: 4;
   width: 100%;
   height: 100%;
   padding: 0%;
@@ -25,11 +35,14 @@
   
 }
 
-.item5{grid-area: 4/1/2/2}
+.item5{
+  grid-row: 3 / span 2;
+  grid-column: 1;
+}
 
 .item6{
   grid-column: 3;
-  grid-row: 1 / span 2;
+  grid-row: 1 / span 3;
   overflow-y: hidden;
   width: 67%;
   height: 92%;
@@ -77,4 +90,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@media screen and (max-width:768px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #26A0DA;
+    gap: 5%;
+  }
+  
 }
