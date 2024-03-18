@@ -4,7 +4,6 @@ import './assets/Map.css'
 import 'leaflet/dist/leaflet.css'
 import { Icon } from "leaflet";
 
-import POIContainer from "./POIContainer";
 
 function ChangeMap({center}) {
   // Changes maps view to the center lat and lon pair.
@@ -61,7 +60,8 @@ function Map({weatherData,portData,fishingData}) {
             
             </Marker>)}
 
-            {weatherData && portData && portData.elements && (
+            {//When the weatherdata and port data is present, the markers for each port is placed, with a popup of the port name.
+            weatherData && portData && portData.elements && (
               portData.elements.filter((port, i)=> (port.tags.name) ).map((port, i)=>(
                   <Marker key = {i} position={[port.lat, port.lon]} icon={portIcon}>
                 <Popup>
@@ -72,7 +72,8 @@ function Map({weatherData,portData,fishingData}) {
             )
             }
 
-            {weatherData && fishingData && fishingData.elements && (
+            {//When the weatherdata and fishing data is present, the markers for each fishing point is placed, with a popup of the name of each fishing point.
+            weatherData && fishingData && fishingData.elements && (
               fishingData.elements.filter((fishing, i)=> (fishing.tags.name) ).map((fishing, i)=>(
                   <Marker key = {i} position={[fishing.lat, fishing.lon]} icon={fishingIcon}>
                 <Popup>
@@ -85,16 +86,13 @@ function Map({weatherData,portData,fishingData}) {
 
 
 
-            {weatherData && weatherData.coord && <ChangeMap center={[weatherData.coord.lat, weatherData.coord.lon ]}></ChangeMap>}
+            { // If weatherData and the coordinates for it, we pass the said coordinates to the ChangeMap method above
+            weatherData && weatherData.coord && <ChangeMap center={[weatherData.coord.lat, weatherData.coord.lon ]}></ChangeMap>
+            }
 
             
             
         </MapContainer>
-
-        <POIContainer weatherData={weatherData} poiData={portData}/>
-        
-        <POIContainer weatherData={weatherData} poiData={fishingData}/>
-        
 
       </div>
     );
