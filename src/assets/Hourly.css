@@ -1,0 +1,113 @@
+.hourly-forecast-container{
+    width: 58vw;
+    height: 90%;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 0.7%;
+    background-color: #26A0DA;
+}
+
+.graph {
+    width: 100%;
+}
+
+.hourly-boxes {
+    display: flex;
+    flex-wrap: nowrap; 
+    width: 100%;
+    
+}
+
+.hourly-box{
+    border-right: solid rgb(198, 197, 197);
+    width: 8vw;
+    
+}
+
+.title{
+    color: white;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: left;
+}
+
+
+
+.hourly-time,
+.hourly-temperature, .precipitation, .wind, .humidity_text {
+    width: 8vw;
+    text-align: center;
+    margin-bottom: 4%;
+    margin-top: 0%;
+    
+}
+
+.weather-icon{
+    width: 5vw;
+    margin:auto;
+
+}
+
+.arrow_icon{
+    width: 2vw;
+    margin: auto;
+}
+
+.rain{
+    width: 1vw;
+    margin: auto;
+
+}
+
+
+.scrollable-box {
+    /* width: 75%; */
+    height: 200%;
+    /* overflow-x: auto; */
+    height:fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    display: flex;
+    display: block;
+    
+    /*background-color: rgb(164, 227, 239);*/
+
+}
+
+.Scroll::-webkit-scrollbar{
+    display: none;
+}
+
+  
+.arrow_icon.north {
+    transform: rotate(0deg);
+}
+  
+.arrow_icon.northeast {
+    transform: rotate(45deg);
+}
+  
+.arrow_icon.east {
+    transform: rotate(90deg);
+}
+  
+.arrow_icon.southeast {
+    transform: rotate(135deg);
+}
+  
+.arrow_icon.south {
+    transform: rotate(180deg);
+}
+  
+.arrow_icon.southwest {
+    transform: rotate(225deg);
+}
+  
+.arrow_icon.west {
+    transform: rotate(270deg);
+}
+  
+.arrow_icon.northwest {
+    transform: rotate(315deg);
+}

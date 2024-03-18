@@ -6,11 +6,14 @@ import Hourly from './Hourly';
 import Weekly from './Weekly';
 import Map from './Map';
 import axios from 'axios';
-
 import { API_KEY } from './config';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+
 function App() {
   const [city, setCity] = useState('');
+  const [lat, setLat] = useState('');
+  const [lon, setLon] = useState('');
+  const [gradientColors, setGradientColors] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const [portData, setPortData] = useState(null);
   const [fishingData, setFishingData] = useState(null); 
@@ -24,7 +27,16 @@ function App() {
         throw new Error('Network response was not ok');
       }
       const data = await response.json()
-      setWeatherData(data);     
+      const{coord} = data;
+      setLat(coord.lat);
+      setLon(coord.lon);
+      setWeatherData(data);  
+      
+      const sunrise =new Date(data.sys.sunrise * 1000 + data.timezone * 1000);
+      const sunset = new Date(data.sys.sunset * 1000 + data.timezone * 1000);
+      const current_time = new Date(data.dt * 1000 + data.timezone * 1000);
+      calculateGradientColors(data.weather[0].id.toString(),sunrise,sunset,current_time);
+      
     }
     catch(error){
       console.error(error);
@@ -96,6 +108,76 @@ function App() {
     fetchData();
     fetchWeeklyData();
   };
+
+  const calculateGradientColors = (weatherId, sunrise, sunset, currentDateTime) => {
+    let gradientStartColor, gradientMidColor, gradientEndColor;
+
+    switch(true){ //changing background gradient based on weather conditions/sunset/sunrise
+      //Checking if it has been less than and hour after sunrise
+      case currentDateTime.getTime() === sunrise.getTime() || (currentDateTime.getTime() > sunrise.getTime() && currentDateTime.getTime() - sunrise.getTime() < 3600000):
+        gradientStartColor = '#795cb9';
+        gradientMidColor = '#d28c93';
+        gradientEndColor= '#faac84';
+        break;
+      //checking if it has been less than an hour after sunset
+      case currentDateTime.getTime() === sunset.getTime() || (currentDateTime.getTime() > sunset.getTime() && currentDateTime.getTime() - sunset.getTime() < 3600000):
+        gradientStartColor = '#cc5500';
+        gradientMidColor = '#c70039';
+        gradientEndColor= '#581845';
+        break;
+      // weatherid: 2=Thunderstorms 781=Tornado 771=squall 762=ash
+      case weatherId.startsWith('2') || weatherId === '781' || weatherId === '771' || weatherId === '762':
+        gradientStartColor = '#413b3f';
+        gradientMidColor = '#6e5a56'
+        gradientEndColor= '#927166';
+        break;
+      // 751=sand 761=dust 731=dust whirls
+      case weatherId === '751' || weatherId === '761' || weatherId === '731':
+        gradientStartColor = '#a9703e';
+        gradientMidColor = '#c88748'
+        gradientEndColor= '#d3a36a';
+        break;
+      // 6= snow 711=smoke
+      case weatherId.startsWith('6') || weatherId === '711':
+        gradientStartColor = '#878c93';
+        gradientMidColor = '#a7aeb2';
+        gradientEndColor= '#ebeeef';
+        break;
+      // 800 = clear skies
+      case weatherId === '800':
+        gradientStartColor = '#53a7f8';
+        gradientMidColor = '#aad4f6';
+        gradientEndColor= '#b9f1fc';
+        break;
+      // 8 = clouds
+      case weatherId.startsWith('8'):
+        gradientStartColor = '#6599b3';
+        gradientMidColor = '#87aabf';
+        gradientEndColor= '#eef5f8';
+        break;
+      // 721=Haze 701=Mist 741=Fog
+      case weatherId === '721' || weatherId === '701'|| weatherId === '741':
+        gradientStartColor = '#c4b5ce';
+        gradientMidColor = '#9b81ad';
+        gradientEndColor= '#9e9fbd';
+        break;
+      // 3=rain 5=drizzle
+      case weatherId.startsWith('3')||weatherId.startsWith('5'):
+        gradientStartColor = '#c4d7e6';
+        gradientMidColor = '#66a5ad';
+        gradientEndColor= '#274a5d';
+        break;
+      // Incase api call failed at getting weather id
+      default:
+        gradientStartColor = '#87CEEB';
+        gradientMidColor = '#BDC3C7';
+        gradientEndColor= '#34495E';
+        break;
+    }
+    const gradient = `linear-gradient(to bottom, ${gradientStartColor}, ${gradientMidColor}, ${gradientEndColor})`;
+    setGradientColors(gradient);
+
+  };
   
 
   return (
@@ -107,7 +189,7 @@ function App() {
         <Route path="/" element={
           <>
            <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
-           <Hourly/>
+           <Hourly lat={lat} lon={lon}/>
            <Weekly weatherData={weeklyData}/>
            <Map weatherData={weatherData} portData={portData} fishingData={fishingData}/>
            </>
