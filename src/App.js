@@ -13,6 +13,7 @@ function App() {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const [portData, setPortData] = useState(null);
+  const [weeklyData, setWeeklyData] = useState(null);
   const [fishingData, setFishingData] = useState(null); 
   const [radius, setRadius] = useState(10000);
   const fetchData = useCallback(async () =>{
@@ -23,9 +24,7 @@ function App() {
         throw new Error('Network response was not ok');
       }
       const data = await response.json()
-      setWeatherData(data);
-      console.log(data);
-      
+      setWeatherData(data);     
     }
     catch(error){
       console.error(error);
@@ -73,13 +72,28 @@ function App() {
     }
   }, [weatherData])
 
+  // Fetches weekly weather data from OpenWeather API and updates the state of weeklyData
+  const fetchWeeklyData = useCallback(async () => {
+    try {
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&units=metric&cnt=7&appid=${API_KEY}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      setWeeklyData(data.list);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [city]);
+
   const handleInputChange = (e) => {
     setCity(e.target.value);
   };
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault();
     fetchData();
+    fetchWeeklyData();
   };
   
 
