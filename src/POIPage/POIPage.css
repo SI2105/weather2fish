@@ -1,0 +1,37 @@
+.poi{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: 20% ;
+    padding-inline: 1rem;
+    background-color: #252B42;
+    color: white;
+    
+}
+
+
+.POIPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.POIPage > .map{
+    flex: 1;
+    width: 100%;
+    margin-inline: 0;
+    background:none
+}
+
+
+
+.poiContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: #26A0DA;
+    margin-block: 2%;
+    gap: 1rem;
+    width: 100%;
+    padding-block: 2rem;
+}
