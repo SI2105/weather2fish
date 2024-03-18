@@ -182,7 +182,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className='App'>
+    <div className='App' style={{background: gradientColors}}>
       <Header city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
       
       <Routes>
