@@ -13,9 +13,9 @@ function App() {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const [portData, setPortData] = useState(null);
-  const [weeklyData, setWeeklyData] = useState(null);
   const [fishingData, setFishingData] = useState(null); 
   const [radius, setRadius] = useState(10000);
+  const [weeklyData, setWeeklyData] = useState(null);
   const fetchData = useCallback(async () =>{
     try{
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}` //Replace API_KEY with your API KEY
@@ -81,6 +81,7 @@ function App() {
       }
       const data = await response.json();
       setWeeklyData(data.list);
+      console.log(weeklyData)
     } catch (error) {
       console.error(error);
     }
