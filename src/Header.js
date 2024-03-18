@@ -9,7 +9,7 @@ function Header({city, handleSubmit, handleInputChange}) {
                 <button type="submit" class="search-icon">&#128269;</button>
             </form>
             <Link to="catch-tracker" >Catch Tracker</Link>
-            <Link to="poiMap">Map</Link>
+            <Link to="poiMap">Points Of Interest</Link>
         </div>
     );
   }
