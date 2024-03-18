@@ -1,22 +1,26 @@
+.Overview {
+    height: 100%;
+}
 .Overview > .result {
 
-    display: grid;
-    
+    display: flex;
+    flex-direction: column;
 
-    background: url('szabo-viktor-28ZbKOWiZfs-unsplash1.png');
     background-position: center;
     background-repeat:no-repeat;
     background-size:cover;
-    min-width: 55rem;
-    min-height: 14rem;
+    width: 98%;
+    height: 100%;
+    margin-left: 2%;
+    border-radius: 20px;
     border-style: solid;
-    border-width: 1%;
+    box-shadow: 5px 5px 10px rgba(0,0,0, 0.3);
  
     grid-template-areas: 
     "names icon"
     "maintemp description"
     ;
-    margin-inline:20% ;
+
 }
 
 .names{
@@ -24,14 +28,53 @@
     flex-direction: column;
     padding-inline: 20%;
     justify-content: center;
+    margin-top: 2%;
 
+}
+
+.city{
+    font-size: 35px;
+}
+
+img {
+    display: block; 
+    margin: 0 auto; 
+}
+
+.icons-date {
+    font-size: 10px;
 }
 
 .icons-date img{
-    width: 10rem;
-    height: auto;
+    width: 35%;
 }
+
 
 .result h2{
     text-align: center;
+    margin: 0%;
+}
+
+h3 {
+    margin: auto;
+    margin-bottom: 5%;
+    margin-top: 1%;
+}
+
+.temp{
+    margin-top: 0%;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+}
+
+.maintemp{
+    font-size:50px;
+}
+
+.descriptionsect{
+    margin-bottom: 2%;
 }

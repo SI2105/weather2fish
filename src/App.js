@@ -189,15 +189,25 @@ function App() {
   return (
     <BrowserRouter>
     <div className='App' style={{background: gradientColors}}>
+      <div className='item1'>
       <Header city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
-      
+      <WeatherAlerts key={`${lat}-${lon}`} lat={lat} lon={lon} />
+      </div>
       <Routes>
         <Route path="/" element={
           <>
-           <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
-           <Hourly lat={lat} lon={lon}/>
-           <Weekly weeklyData={weeklyData}/>
-           <Map weatherData={weatherData} portData={portData} fishingData={fishingData}/>
+            <div className='item3'>
+              <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
+            </div>
+            <div className='item4'>
+              <Hourly lat={lat} lon={lon}/>
+            </div>
+            <div className='item5'>
+              <Weekly weeklyData={weeklyData}/>
+            </div>
+            <div className='item6'>
+              <Map style={{background: 'purple'}} weatherData={weatherData} portData={portData} fishingData={fishingData}/>
+           </div>
            </>
         }/>
          
@@ -207,9 +217,11 @@ function App() {
 
         <Route path='/poiMap' element={
           <POIPage weatherData={weatherData} portData={portData} fishingData={fishingData} radius={radius} setRadius={setRadius} handleRadius={handleRadius}/>}
+
         />
         
       </Routes>
+      
 
     </div>
     </BrowserRouter>

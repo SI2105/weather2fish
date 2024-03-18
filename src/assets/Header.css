@@ -1,37 +1,40 @@
 .header {
-    background-color: #007bff; /* Blue background */
-    overflow: hidden;
+    /* Blue background */
     display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center;
-    padding: 10px;
+    flex-direction: column;
     border-radius: 5px; /* Rounded corners */
+    width: 100%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
 }
-.header a,
-.header button,
-.search-icon {
+.header button{
     color: white;
     text-decoration: none;
-    padding: 14px 20px;
+    padding: 3%;
     border-radius: 5px; /* Rounded corners */
     text-align: center;
-}
-.header a {
-    background: none;
     border: none;
+    padding: 3%;
+    border-radius: 0 5px 5px 0;
+    background-color: #dc3545; /* Red background */
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
+
 .search-container {
     display: flex;
     align-items: center;
-    background-color: white;
+    border: solid black;
     border-radius: 5px; /* Rounded corners for the search box */
-    margin: 0 20px; /* Adjust spacing around search box */
+    margin: 0% 8%; /* Adjust spacing around search box */
+    width: 80%;
 }
 .header input[type="search"] {
-    border: none;
-    padding: 10px;
+
+    padding: 3%;
     width: auto; /* Adjust the width as needed */
     border-radius: 5px 0 0 5px; /* Only round the left corners */
+    width: 100%;
 }
 .search-icon {
     padding: 10px;
@@ -40,12 +43,28 @@
     border-radius: 0 5px 5px 0; /* Only round the right corners */
     cursor: pointer;
 }
-.header button {
-    background-color: #dc3545; /* Red background */
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+
 .header button:hover {
     background-color: #c82333; /* Darker red on hover */
 }
+
+.links{
+    font-size: medium;
+    margin: 2%;
+    margin-right: 12%;
+    text-align: end;
+    display: flex;
+    flex-direction: row;
+    vertical-align: bottom;
+}
+
+.link2{
+    margin-left: 5%;
+    padding: 2%;
+    border: solid black 0.7px;
+    border-radius: 25px;
+}
+
+
+
+

@@ -1,8 +1,10 @@
 .weekly-container {
     background-color: #26A0DA;
-    margin-inline: 20%;
+    margin-inline: 2%;
     padding-bottom:1px;
-    min-width: 55rem;
+    width: 98%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .weekly-data {
@@ -11,7 +13,7 @@
 
 .weekly-header {
     text-align: left;
-    padding: 10px 0px 10px 15px;
+    padding: 1.5% 0% 1.5% 2%;
     margin:0;
     border-bottom: 1px solid white;
     color:white;
@@ -24,10 +26,11 @@
     background-color: #252B42;
     margin:5px;
     color:white;
+    border-radius: 10px;
 }
 
 .daily-weather > * {
-    margin: 10px 15px 10px 10px;
+    margin: 1.8% 1.8% 1.8% 1.8%;
 }
 
 .daily-small {
@@ -35,16 +38,16 @@
 }
 
 .daily-date > * {
-    margin:0 5px 0 0;
+    margin:0 0.5% 0 0;
     padding:0;
     font-size: 13px;
 }
 
 
 .daily-fish-activity {
-    width:150px;
+    width:25%;
     margin-left: auto;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 
 .daily-avg-temperature {
@@ -52,8 +55,9 @@
 }
 
 .flex-item {
-    width:50px;
+    width:8%;
     white-space: nowrap;
+    
 }
 
 .red-activity {

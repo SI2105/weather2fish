@@ -1,11 +1,16 @@
 .hourly-forecast-container{
-    width: 58vw;
-    height: 90%;
+    width: 95%;
+    height: auto;
     margin: auto;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    margin-top: 2%;
     padding: 0.7%;
     background-color: #26A0DA;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hourly-forecast-container::-webkit-scrollbar{
+    display: none;
 }
 
 .graph {
@@ -27,8 +32,8 @@
 
 .title{
     color: white;
-    margin-top: 1%;
     margin-bottom: 1%;
+    margin-top: 0.5%;
     text-align: left;
 }
 
@@ -62,17 +67,11 @@
 
 
 .scrollable-box {
-    /* width: 75%; */
-    height: 200%;
-    /* overflow-x: auto; */
     height:fit-content;
     width: fit-content;
     margin: 0 auto;
     display: flex;
     display: block;
-    
-    /*background-color: rgb(164, 227, 239);*/
-
 }
 
 .Scroll::-webkit-scrollbar{
