@@ -190,7 +190,7 @@ function App() {
           <>
            <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
            <Hourly lat={lat} lon={lon}/>
-           <Weekly weatherData={weeklyData}/>
+           <Weekly weeklyData={weeklyData}/>
            <Map weatherData={weatherData} portData={portData} fishingData={fishingData}/>
            </>
         }/>
