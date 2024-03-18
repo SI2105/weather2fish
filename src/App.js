@@ -5,6 +5,7 @@ import Overview from './Overview';
 import Hourly from './Hourly';
 import Weekly from './Weekly';
 import Map from './Map';
+import POIPage from './POIPage/POIPage';
 import axios from 'axios';
 import { API_KEY } from './config';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
@@ -61,7 +62,7 @@ function App() {
     return data
   }
   const getFishingPoints = async (radius) => {
-    const response = await axios.get(`https://overpass-api.de/api/interpreter?data=[out:json];nwr[fishing](around:${radius},${weatherData.coord.lat},${weatherData.coord.lon});out center;`);  
+    const response = await axios.get(`https://overpass-api.de/api/interpreter?data=[out:json];nwr[fishing](around:${radius},${weatherData.coord.lat},${weatherData.coord.lon});out qt center;`);  
     const data = response.data
 
     for (var i = 0; i < data.elements.length; i++){
@@ -107,6 +108,11 @@ function App() {
     e.preventDefault();
     fetchData();
     fetchWeeklyData();
+  };
+
+  const handleRadius = async (e) =>{
+    getPorts(radius);
+    getFishingPoints(radius);
   };
 
   const calculateGradientColors = (weatherId, sunrise, sunset, currentDateTime) => {
@@ -196,7 +202,11 @@ function App() {
         }/>
          
         <Route path='/catch-tracker' element={
-          <Map weatherData={weatherData} portData={portData}/>}
+          <Map weatherData={weatherData} portData={portData} city={city}/>}
+        />
+
+        <Route path='/poiMap' element={
+          <POIPage weatherData={weatherData} portData={portData} fishingData={fishingData} radius={radius} setRadius={setRadius} handleRadius={handleRadius}/>}
         />
         
       </Routes>
