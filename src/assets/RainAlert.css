@@ -1,0 +1,23 @@
+.rain-alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    color: white; /* Default text color for visibility */
+}
+
+.rain-alert.light {
+    background-color: #98fb98; /* Pale Green for light rain */
+}
+
+.rain-alert.moderate {
+    background-color: #ffd700; /* Gold for moderate rain */
+}
+
+.rain-alert.heavy {
+    background-color: #ff6347; /* Tomato for heavy rain */
+}
+
+.rain-alert.extreme {
+    background-color: #8b0000; /* Dark Red for extreme rain */
+}
