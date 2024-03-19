@@ -227,7 +227,7 @@ function App() {
                 <Weekly weeklyData={weeklyData}/>
               </div>
               <div className='item6'>
-                <Map weatherData={weatherData} portData={portData} fishingData={fishingData}/>
+                <Map weatherData={weatherData} portData={portData} fishingData={fishingData} radius={radius}/>
             </div>
             </>
           }/>
