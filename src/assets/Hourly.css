@@ -114,7 +114,7 @@
 
 @media screen and (max-width:780px) {
     .humidity_text, .wind{
-        font-size: 10px;
+        font-size: 0.5rem;
     }
     
 }
