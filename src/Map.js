@@ -5,22 +5,24 @@ import 'leaflet/dist/leaflet.css'
 import { Icon } from "leaflet";
 
 
-function ChangeMap({center}) {
+function ChangeMap({center,zoom}) {
   // Changes maps view to the center lat and lon pair.
+
   const map = useMap();
   useEffect(()=>{
-    map.setView(center,12); //Use Effect here ensure the map is centered when center pair or the map changes
+    map.setView(center,zoom); //Use Effect here ensure the map is centered when center pair or the map changes
 
-  }, [center,map])
+  }, [center,zoom,map])
   
   return null;
 }
 
 
-function Map({weatherData,portData,fishingData}) {
-  
+function Map({weatherData,portData,fishingData,radius}) {
     
   // Below are the custome marker icons for each type off marker.
+  let zoom = 13 - (((radius - 10000) * (13 - 8)) / (100000 - 10000));
+  zoom = Math.round(zoom*100)/100
 
   //City Marker
   const customIcon = new Icon({
@@ -87,7 +89,7 @@ function Map({weatherData,portData,fishingData}) {
 
 
             { // If weatherData and the coordinates for it, we pass the said coordinates to the ChangeMap method above
-            weatherData && weatherData.coord && <ChangeMap center={[weatherData.coord.lat, weatherData.coord.lon ]}></ChangeMap>
+            weatherData && weatherData.coord && radius && <ChangeMap center={[weatherData.coord.lat, weatherData.coord.lon ]} zoom={zoom}></ChangeMap>
             }
 
             
