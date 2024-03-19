@@ -49,13 +49,13 @@
 }
 
 .links{
-    font-size: medium;
+    font-size: small;
     margin: 2%;
     margin-right: 12%;
-    text-align: end;
     display: flex;
     flex-direction: row;
     vertical-align: bottom;
+    width: auto;
 }
 
 .link2{

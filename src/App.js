@@ -191,44 +191,46 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className='App' style={{ height:'100%', background: gradientColors}}>
-      <div className='item1'>
-      <Header city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
-      </div>
-      <Routes>
-        <Route path="/" element={
-          <>
-            <div className='item2'>
-              <WeatherAlerts key={`${lat}-${lon}`} lat={lat} lon={lon} />
+      <div className='App' style={{ height:'100%', background: gradientColors}}>
+        <div className='item1'>
+        <Header city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
+        </div>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <div className='item2'>
+                <WeatherAlerts key={`${lat}-${lon}`} lat={lat} lon={lon} /> 
+              </div>
+              <div className='item3'>
+                <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
+              </div>
+              <div className='item4'>
+                <Hourly lat={lat} lon={lon}/>
+              </div>
+              <div className='item5'>
+                <Weekly weeklyData={weeklyData}/>
+              </div>
+              <div className='item6'>
+                <Map weatherData={weatherData} portData={portData} fishingData={fishingData}/>
             </div>
-            <div className='item3'>
-              <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
-            </div>
-            <div className='item4'>
-              <Hourly lat={lat} lon={lon}/>
-            </div>
-            <div className='item5'>
-              <Weekly weeklyData={weeklyData}/>
-            </div>
-            <div className='item6'>
-              <Map style={{background: 'purple'}} weatherData={weatherData} portData={portData} fishingData={fishingData}/>
-           </div>
-           </>
-        }/>
-         
-        <Route path='/catch-tracker' element={
-          <Map weatherData={weatherData} portData={portData} city={city}/>}
-        />
+            </>
+          }/>
+          
+          <Route path='/catch-tracker' element={
+            <Map weatherData={weatherData} portData={portData} city={city}/>}
+          />
 
-        <Route path='/poiMap' element={
-          <POIPage weatherData={weatherData} portData={portData} fishingData={fishingData} radius={radius} setRadius={setRadius} handleRadius={handleRadius}/>}
+          <Route path='/poiMap' element={
+            <div className='item8'>
+              <POIPage weatherData={weatherData} portData={portData} fishingData={fishingData} radius={radius} setRadius={setRadius} handleRadius={handleRadius}/>
+            </div>
 
-        />
+          }/>
+          
+        </Routes>
         
-      </Routes>
-      
 
-    </div>
+      </div>
     </BrowserRouter>
     
   );

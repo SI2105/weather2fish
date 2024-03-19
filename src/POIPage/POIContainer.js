@@ -19,7 +19,7 @@ function POIContainer({weatherData, poiData, poi_type, changeMap}){
 
           {
             poiData && poiData.elements.length === 0 && (
-              <h2>No {poi_type} found at this radius and location</h2>
+              <h2 className="no_ports">No {poi_type} found at this radius and location</h2>
             )
           }
 

@@ -45,6 +45,7 @@
     text-align: center;
     margin-bottom: 4%;
     margin-top: 0%;
+    font-size: 1rem;
     
 }
 
@@ -109,4 +110,11 @@
   
 .arrow_icon.northwest {
     transform: rotate(315deg);
+}
+
+@media screen and (max-width:780px) {
+    .humidity_text, .wind{
+        font-size: 10px;
+    }
+    
 }

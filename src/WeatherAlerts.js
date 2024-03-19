@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './assets/WeatherAlerts.css';
 import axios from 'axios';
+import { ALERT_API_KEY } from './config';
 
 const WeatherAlerts = ({ lat, lon }) => {
   const [alerts, setAlerts] = useState([]);
@@ -10,7 +11,7 @@ const WeatherAlerts = ({ lat, lon }) => {
     const fetchData = async () => {
       setLoading(true); // Set loading to true when fetching new data
       try {
-        const response = await axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}/${getCurrentDate()}/${getCurrentDate()}?key=ZBECCYSCSMHJCDWQWD2D9YTXG`);
+        const response = await axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}/${getCurrentDate()}/${getCurrentDate()}?key=${ALERT_API_KEY}`);
         const data = response.data;
         console.log("Weather warning",data);
         if (data.alerts && data.alerts.length > 0) {
@@ -53,7 +54,7 @@ const WeatherAlerts = ({ lat, lon }) => {
             alerts.map((alert, index) => (
               <div className='single_alert' key={index}>
                 <p className='point'><strong>!</strong></p>
-                <p>{alert.event}: {alert.headline}</p>
+                <p>{alert.event}: {alert.description}</p>
               </div>
             ))
           ) : (

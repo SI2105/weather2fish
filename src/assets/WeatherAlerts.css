@@ -1,10 +1,10 @@
 .alerts {
-    height: 80%;
+    height: auto;
     background-color: maroon;
     color: white;
     border-radius: 10px;
-    padding: 2%;
-    margin: 2%;
+    padding: 0.5%;
+    margin: 5%;
     overflow-y: scroll;
     box-shadow: 5px 5px 10px rgba(0,0,0, 0.3);
 }

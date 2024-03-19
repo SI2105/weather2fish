@@ -17,18 +17,18 @@ function POIPage({weatherData, portData, fishingData, radius, setRadius, handleR
   };
 
     return (
-      <div className="POIPage">
+      <div className='layout'>
         <div className='radiussection'>
-        <p for="radius">Choose a Radius (metres):</p>
+          <p for="radius">Choose a Radius (metres):</p>
 
-        <input type="range" min="10000" max="100000" value={radius} class="radius_slider" id="radius" onChange={handleInputChange} onMouseUp={handleRadius} disabled={!RadiusEnable} />
+          <input type="range" min="10000" max="100000" value={radius} class="radius_slider" id="radius" onChange={handleInputChange} onMouseUp={handleRadius} disabled={!RadiusEnable} />
         </div>
-        
-        <Map weatherData={weatherData} portData={portData} fishingData={fishingData}/>
+      <div className="POIPage">
         <POIContainer weatherData={weatherData} poiData={portData} poi_type={"Ports"} />
-          
+        <Map weatherData={weatherData} portData={portData} fishingData={fishingData}/>
         <POIContainer weatherData={weatherData} poiData={fishingData} poi_type={"Fishing Points"} />
         </div>
+      </div>
     );
   }
   

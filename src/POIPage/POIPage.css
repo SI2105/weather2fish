@@ -1,7 +1,7 @@
 .poi{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    border-radius: 20px;
     margin-inline: 20% ;
     padding-inline: 1rem;
     background-color: #252B42;
@@ -12,16 +12,14 @@
 
 .POIPage{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    flex-direction: row;
 }
 
 .POIPage > .map{
     flex: 1;
-    width: 100%;
-    margin-inline: 0;
-    background:none
+    width: 50%;
+    margin-top:5%;
+
 }
 
 
@@ -29,9 +27,58 @@
 .poiContainer{
     display: flex;
     flex-direction: column;
+
     background-color: #26A0DA;
     margin-block: 2%;
     gap: 1rem;
-    width: 100%;
+    width: 25%;
     padding-block: 2rem;
+    border-radius: 20px;
 }
+
+.ports{
+    display: flex;
+    flex-direction: column;
+
+    background-color: #26A0DA;
+    margin-block: 2%;
+    gap: 1rem;
+    width: 25%;
+}
+
+.radiussection{
+    display: block;
+    margin-left: 40%;
+}
+
+.no_ports{
+    text-wrap:wrap;
+    text-align: center;
+}
+
+@media screen and (max-width:780px) {
+    .POIPage{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .POIPage > .map{
+        flex: 1;
+        width: 100%;
+        margin-top:5%;
+    
+    }
+
+    .poiContainer{
+        display: flex;
+        flex-direction: column;
+        margin-block: 1%;
+        gap: 1rem;
+        width: 100%;
+        padding-block: 2%;
+        border-radius: 20px;
+        
+    background-color: #26A0DA;
+    }
+    
+  }
