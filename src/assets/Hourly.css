@@ -5,8 +5,8 @@
     margin-top: 2%;
     padding: 0.7%;
     background-color: #26A0DA;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0.6rem;
+    box-shadow: 0.3rem 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
 }
 
 .hourly-forecast-container::-webkit-scrollbar{

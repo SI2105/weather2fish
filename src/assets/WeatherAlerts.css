@@ -2,11 +2,11 @@
     height: auto;
     background-color: maroon;
     color: white;
-    border-radius: 10px;
+    border-radius: 0.6rem;
     padding: 0.5%;
     margin: 5%;
     overflow-y: scroll;
-    box-shadow: 5px 5px 10px rgba(0,0,0, 0.3);
+    box-shadow: 0.3rem 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
 }
 
 .alerts::-webkit-scrollbar{

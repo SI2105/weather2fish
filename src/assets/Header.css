@@ -2,7 +2,7 @@
     /* Blue background */
     display: flex;
     flex-direction: column;
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 0.3rem; /* Rounded corners */
     width: 100%;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
@@ -11,11 +11,11 @@
     color: white;
     text-decoration: none;
     padding: 3%;
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 0.3rem; /* Rounded corners */
     text-align: center;
     border: none;
     padding: 3%;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 0.3rem 0.3rem 0;
     background-color: #dc3545; /* Red background */
     cursor: pointer;
     transition: background-color 0.3s;
@@ -25,7 +25,7 @@
     display: flex;
     align-items: center;
     border: solid black;
-    border-radius: 5px; /* Rounded corners for the search box */
+    border-radius: 0.3rem; /* Rounded corners for the search box */
     margin: 0% 8%; /* Adjust spacing around search box */
     width: 80%;
 }
@@ -33,14 +33,14 @@
 
     padding: 3%;
     width: auto; /* Adjust the width as needed */
-    border-radius: 5px 0 0 5px; /* Only round the left corners */
+    border-radius: 0.3rem 0 0 0.3rem; /* Only round the left corners */
     width: 100%;
 }
 .search-icon {
-    padding: 10px;
+    padding: 0.6rem;
     background-color: #0056b3;
     color: white;
-    border-radius: 0 5px 5px 0; /* Only round the right corners */
+    border-radius: 0 0.3rem 0.3rem 0; /* Only round the right corners */
     cursor: pointer;
 }
 
@@ -62,7 +62,7 @@
     margin-left: 5%;
     padding: 2%;
     border: solid black 0.7px;
-    border-radius: 25px;
+    border-radius: 1.6rem;
 }
 
 

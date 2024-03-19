@@ -4,7 +4,7 @@
   grid-template-rows: 10% 25% 15% 50%;
   grid-template-columns: 40% 30% 30%;
   width: 100%;
-  min-height: 1100px;
+  min-height: 70rem;
 }
 
 
@@ -52,8 +52,8 @@
   padding-top: 2%;
   padding-bottom: 2%;
   background-color: #26A0DA;
-  border-radius: 10px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 0.6rem;
+  box-shadow: 0.3rem 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
 }
 
 .item8{
@@ -105,7 +105,7 @@
     flex-direction: column;
     width: 100%;
     gap: 5%;
-    min-height: 1100px;
+    min-height: 69rem;
   }
   
 }

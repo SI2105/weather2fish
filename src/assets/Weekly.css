@@ -1,32 +1,32 @@
 .weekly-container {
     background-color: #26A0DA;
     margin-inline: 2%;
-    padding-bottom:1px;
+    padding-bottom:0.05rem;
     width: 98%;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0.6rem;
+    box-shadow: 0.3rem 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
 }
 
 .weekly-data {
-    padding-top:5px;
+    padding-top:0.3rem;
 }
 
 .weekly-header {
     text-align: left;
     padding: 1.5% 0% 1.5% 2%;
     margin:0;
-    border-bottom: 1px solid white;
+    border-bottom: 0.05rem solid white;
     color:white;
 }
 
 .daily-weather {
     display:flex;
-    padding: 5px;
+    padding: 0.3rem;
     align-items: center;
     background-color: #252B42;
-    margin:5px;
+    margin:0.3rem;
     color:white;
-    border-radius: 10px;
+    border-radius: 0.6rem;
 }
 
 .daily-weather > * {
@@ -34,13 +34,13 @@
 }
 
 .daily-small {
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 .daily-date > * {
     margin:0 0.5% 0 0;
     padding:0;
-    font-size: 13px;
+    font-size: 0.8rem;
 }
 
 
@@ -51,7 +51,7 @@
 }
 
 .daily-avg-temperature {
-    font-size:20px;
+    font-size:1.25rem;
 }
 
 .flex-item {
