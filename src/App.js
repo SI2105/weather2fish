@@ -6,6 +6,7 @@ import Hourly from './Hourly';
 import Weekly from './Weekly';
 import Map from './Map';
 import POIPage from './POIPage/POIPage';
+import RainAlert from './RainAlert';
 import axios from 'axios';
 import { API_KEY } from './config';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
@@ -20,6 +21,7 @@ function App() {
   const [fishingData, setFishingData] = useState(null); 
   const [radius, setRadius] = useState(10000);
   const [weeklyData, setWeeklyData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
   const fetchData = useCallback(async () =>{
     try{
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}` //Replace API_KEY with your API KEY
@@ -100,6 +102,20 @@ function App() {
     }
   }, [city]);
 
+  const fetchForecast = useCallback(async () => {
+    try {
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      setForecastData(data);
+      console.log(data)
+    } catch (error) {
+      console.error(error);
+    }
+  }, [city]);
+
   const handleInputChange = (e) => {
     setCity(e.target.value);
   };
@@ -108,6 +124,7 @@ function App() {
     e.preventDefault();
     fetchData();
     fetchWeeklyData();
+    fetchForecast();
   };
 
   const handleRadius = async (e) =>{
@@ -190,6 +207,7 @@ function App() {
     <BrowserRouter>
     <div className='App' style={{background: gradientColors}}>
       <Header city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
+      <RainAlert weatherData={forecastData}/>
       
       <Routes>
         <Route path="/" element={
