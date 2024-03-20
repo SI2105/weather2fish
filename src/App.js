@@ -8,6 +8,7 @@ import Map from './Map';
 import WeatherAlerts from './WeatherAlerts';
 import POIPage from './POIPage/POIPage';
 import RainAlert from './RainAlert';
+import TrackerList from './TrackerPage/TrackerList';
 import axios from 'axios';
 import { API_KEY } from './config';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
@@ -265,7 +266,7 @@ function App() {
           }/>
 
           <Route path='/catch-tracker' element={
-            <Map weatherData={weatherData} portData={portData} city={city}/>}
+           <TrackerList/>}
           />
 
           <Route path='/poiMap' element={
