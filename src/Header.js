@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import './assets/Header.css';
+import fishing from './assets/fishing-icon.png'
 function Header({city, handleSubmit, handleInputChange}) {
     return (
         <div>
             <div className='header'>
                 <div className='links'>
-                    <p>Insert Logo Here</p>
+                    <img src={fishing}></img>
                     <Link style={{ textDecoration: 'none' }} className='link2' to="/">Weather Details</Link>
                     <Link style={{ textDecoration: 'none' }} className='link2' to="catch-tracker" >Catch Tracker</Link>
                     <Link style={{ textDecoration: 'none' }} className='link2' to="poiMap" >Port Finder</Link>

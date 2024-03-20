@@ -58,6 +58,10 @@
     width: auto;
 }
 
+.links>img{
+    height: 2.5rem;
+}
+
 .link2{
     margin-left: 5%;
     padding: 2%;
