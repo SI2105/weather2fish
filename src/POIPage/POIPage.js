@@ -20,7 +20,7 @@ function POIPage({weatherData, portData, fishingData, radius, setRadius, handleR
       <div className='layout'>
         <div className='radiussection'>
         <p className='radius'for="radius">Change Radius : {radius/1000} KM</p>
-        <input className='slider' type="range" min="10000" max="100000" value={radius} class="radius_slider" id="radius" onChange={handleInputChange} onMouseUp={handleRadius} disabled={!RadiusEnable} />
+        <input className='slider' type="range" min="10000" max="100000" step={"100"} value={radius} class="radius_slider" id="radius" onChange={handleInputChange} onMouseUp={handleRadius} disabled={!RadiusEnable} />
         </div>
         
         
