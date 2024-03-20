@@ -5,8 +5,9 @@ function Header({city, handleSubmit, handleInputChange}) {
     return (
         <div>
             <div className='header'>
-
-                <img src={logo} alt="logo" width='60%' height='100%' />
+                <div className='logo'>
+                    <img src={logo} alt="logo" style={{width:'100%', height:'100%', objectFit:'contain'}} />
+                </div>
 
                 <div className='links'>
                     <Link style={{ textDecoration: 'none'}} className='link2' to="/">Weather Details</Link>
