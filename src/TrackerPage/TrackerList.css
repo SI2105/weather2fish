@@ -1,12 +1,86 @@
 .tracker-item {
-    display: flex;
+    width:auto;
     justify-content: space-between;
     margin-bottom: 8px;
     border: 1px solid white; /* Add border */
     padding: 8px; /* Add padding */
-  }
+
+}
   
-  .tracker-item p {
+.tracker-item p {
     color: #fafafa;
-    font-size: calc(7px + 2vmin);
+    font-size: 1rem;
+}
+
+.tracker-list{
+    width: 40%;
+    margin-left: 2%;   
+}
+
+.list{
+  height: 50vh;
+  overflow-y: scroll;
+  margin-top: 2%;
+  outline: solid #fafafa 0.1rem;
+
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.bar-chart{
+    width: 60%;
+    margin-left: 5%;
+    margin-right: 2%;
+}
+
+.tracker-list > input{
+  margin-right: 2%;
+  border: solid black 0.1rem ;
+  padding: 1%;
+}
+
+button{
+  padding: 1%;
+}
+
+
+
+.line-chart{
+    width: 100%;
+}
+
+
+@media screen and (max-width:780px) {
+
+  .row{
+    display: flex;
+    flex-direction: column;
   }
+
+  .tracker-list{
+    width: 95%;
+    margin-left: 2%;   
+    margin-right: 2%;
+  
+  }
+
+  .bar-chart{
+    width: 95%;
+    margin:auto;
+    min-height: 10rem;
+}
+
+.tracker-list > input{
+  margin-left:4%;
+  margin-top: 2%;
+}
+
+}

@@ -189,9 +189,9 @@ function App() {
         break;
       // 751=sand 761=dust 731=dust whirls
       case weatherId === '751' || weatherId === '761' || weatherId === '731':
-        gradientStartColor = '#a9703e';
-        gradientMidColor = '#c88748'
-        gradientEndColor= '#d3a36a';
+        gradientStartColor = '#f3a92f';
+        gradientMidColor = '#c98424'
+        gradientEndColor= '#7b481a';
         break;
       // 6= snow 711=smoke
       case weatherId.startsWith('6') || weatherId === '711':
@@ -266,8 +266,10 @@ function App() {
           }/>
 
           <Route path='/catch-tracker' element={
-           <TrackerList/>}
-          />
+            <div className='item7'>
+              <TrackerList/>
+            </div>
+          }/>
 
           <Route path='/poiMap' element={
             <div className='item8'>

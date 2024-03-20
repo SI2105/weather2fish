@@ -23,7 +23,7 @@
   width: 98%;
   height: auto;
   grid-column: 2;
-  grid-row: 1 / span 3; 
+  grid-row: 1 / span 2; 
 
 }
 .item4{
@@ -43,10 +43,10 @@
 
 .item6{
   grid-column: 3;
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 2;
   overflow-y: hidden;
   width: 80%;
-  height: 92%;
+  height: auto;
   margin: auto;
   margin-top: 0%;
   padding-top: 2%;
@@ -56,10 +56,14 @@
   box-shadow: 0.3rem 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
 }
 
+.item7{
+  grid-column: 1 / span 3;
+  grid-row: 2 / span 3;
+}
+
 .item8{
   grid-column: 1 / span 3;
   grid-row: 2 / span 3;
-
 }
 
 
@@ -112,7 +116,7 @@
 
 .notification-container {
   position: absolute;
-  top: 7rem; 
+  top: 6rem; 
   width: 20%;
   left: 20%;
   transform: translateX(-50%);

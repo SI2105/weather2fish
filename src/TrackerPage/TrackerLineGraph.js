@@ -41,7 +41,7 @@ class TrackerLineGraph extends Component {
             data: this.props.data.fishCounts,
             fill: false,
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            borderColor: 'black',
             borderWidth: 1
             
           }]
@@ -55,30 +55,30 @@ class TrackerLineGraph extends Component {
                 tooltipFormat: 'll' // Date format for tooltips
               },
               ticks: {
-                color: 'white' // Set x-axis interval labels color to white
+                color: 'black' // Set x-axis interval labels color to white
               },
               title: {
                 display: true,
                 text: 'Date',
-                color: 'white' // Set x-axis label color to white
+                color: 'black' // Set x-axis label color to white
               }
             },
             y: {
               beginAtZero: true,
               ticks: {
-                color: 'white' // Set y-axis interval labels color to white
+                color: 'black' // Set y-axis interval labels color to white
               },
               title: {
                 display: true,
                 text: 'Fish Caught',
-                color: 'white' // Set y-axis label color to white
+                color: 'black' // Set y-axis label color to white
               }
             }
           },
           plugins: {
             legend: {
               labels: {
-                color: 'white' // Set legend label color to white
+                color: 'black' // Set legend label color to white
               }
             }
           }
@@ -89,7 +89,7 @@ class TrackerLineGraph extends Component {
 
   render() {
     return (
-      <div style={{ border: '2px solid white', padding: '10px', maxWidth: '1200px', margin: '25px auto', marginTop: '50px' }}>
+      <div style={{ border: '2px solid white', padding: '10px', maxWidth: '1200px', margin: '25px auto', marginTop: '50px'}}>
         <canvas ref={this.chartRef} />
       </div>
     );

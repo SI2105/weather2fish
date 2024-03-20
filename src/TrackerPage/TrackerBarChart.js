@@ -88,7 +88,7 @@ function TrackerBarChart({ data }) {
   }, [data]); // Re-render the chart whenever the data changes
 
   return (
-    <div style={{ border: '2px solid white', padding: '10px', maxWidth: '1200px', margin: '25px auto', marginTop: '50px' }}>
+    <div style={{ border: '2px solid white', padding: '10px', maxWidth: '1200px', minHeight:'10rem' , margin: '25px auto', marginTop: '50px' }}>
       <canvas ref={chartRef} />
     </div>
   );

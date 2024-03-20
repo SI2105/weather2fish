@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TrackerItem from './TrackerItem';
 import TrackerLineGraph from './TrackerLineGraph';
 import TrackerBarChart from './TrackerBarChart'; // Import the TrackerBarGraph component
-import './TrackerList'
+import './TrackerList.css'
 function TrackerList() {
   const [track, setTrack] = useState(() => {
     try {
@@ -96,50 +96,59 @@ function TrackerList() {
   }
 
   return (
-    <div>
-      <div className="tracker-list">
-        <div>
-          <input
-            type="date"
-            value={date}
-            onChange={e => setDate(e.target.value)}
-          />
-          <input
-            type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            placeholder="Name"
-          />
-          <input
-            type="number"
-            value={fishCount}
-            onChange={e => setFishCount(e.target.value)}
-            placeholder="Fish Count"
-          />
-          <button onClick={addTrack}>Add</button>
-        </div>
-        {track
-          .sort((a, b) => new Date(b.date) - new Date(a.date))
-          .map((item, index) => (
-            <TrackerItem
-              key={item.id}
-              track={item}
-              fishCount={fishCountsArray[index]}
-              deleteTrack={deleteTrack}
-            />
-          ))}
-      </div>
-      {/* Render the TrackerBarChart component */}
-      {track.length > 0 && (
-        <TrackerBarChart data={track} />
-      )}
-    <div> </div>
+    <div className='main'>
 
-      {/* Render the TrackerLineGraph component only when datesArray and fishCountsArray are not empty */}
-      {datesArray.length > 0 && fishCountsArray.length > 0 && (
-        <TrackerLineGraph data={{ dates: datesArray, fishCounts: fishCountsArray }} />
-      )}
-      <div> </div>
+    <div className='row'>
+      <div className="tracker-list">
+        <input
+          type="date"
+          value={date}
+          onChange={e => setDate(e.target.value)}
+        />
+        <input
+          type="text"
+          value={name}
+          onChange={e => setName(e.target.value)}
+          placeholder="Name"
+        />
+        <input
+          type="number"
+          value={fishCount}
+          onChange={e => setFishCount(e.target.value)}
+          placeholder="Fish Count"
+        />
+        <button onClick={addTrack}>Add</button>
+
+        <div className='list'>
+          {track
+            .sort((a, b) => new Date(b.date) - new Date(a.date))
+            .map((item, index) => (
+              <TrackerItem
+                key={item.id}
+                track={item}
+                fishCount={fishCountsArray[index]}
+                deleteTrack={deleteTrack}
+              />
+            ))}
+        </div>
+      </div>
+
+
+      <div className='bar-chart'>
+        {/* Render the TrackerBarChart component */}
+        {track.length > 0 && (
+          <TrackerBarChart className='bar' data={track} />
+        )}
+      </div>
+      </div>
+
+      <div className='line-chart'> 
+        {/* Render the TrackerLineGraph component only when datesArray and fishCountsArray are not empty */}
+        {datesArray.length > 0 && fishCountsArray.length > 0 && (
+          <TrackerLineGraph data={{ dates: datesArray, fishCounts: fishCountsArray }} />
+        )}
+      </div>
+
 
     </div>
   );
