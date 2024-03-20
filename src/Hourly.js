@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './assets/Hourly.css';
-import arrow_icon from './assets/arrow_2.png';
-import low_icon from './assets/low.png';
-import medium_icon from './assets/medium.png';
-import high_icon from './assets/high.png';
+import './assets/css/Hourly.css';
+import arrow_icon from './assets/images/arrow_2.png';
+import low_icon from './assets/images/low.png';
+import medium_icon from './assets/images/medium.png';
+import high_icon from './assets/images/high.png';
 import { Chart } from 'chart.js/auto'; // Need to install before use -> npm install chart.js
 import ChartDataLabels from 'chartjs-plugin-datalabels'; // Need to install before use -> npm install chartjs-plugin-datalabels
 import { API_KEY } from './config'; // Import API key from config file

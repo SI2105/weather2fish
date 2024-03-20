@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import './assets/App.css';
+import './assets/css/App.css';
 import Header from './Header';
 import Overview from './Overview';
 import Hourly from './Hourly';

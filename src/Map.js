@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
-import './assets/Map.css'
+import './assets/css/Map.css'
 import 'leaflet/dist/leaflet.css'
 import { Icon } from "leaflet";
 
@@ -26,19 +26,19 @@ function Map({weatherData,portData,fishingData,radius}) {
 
   //City Marker
   const customIcon = new Icon({
-    iconUrl: require('./assets/marker.png'),
+    iconUrl: require('./assets/images/marker.png'),
     iconSize: [25,40]
   })
 
   //Port Marker
   const portIcon = new Icon({
-    iconUrl: require('./assets/port-sign.png'),
+    iconUrl: require('./assets/images/port-sign.png'),
     iconSize: [40,40]
   })
 
   //Fishing Spot Marker
   const fishingIcon = new Icon({
-    iconUrl: require('./assets/fishing.png'),
+    iconUrl: require('./assets/images/fishing.png'),
     iconSize: [32,32]
   })
 

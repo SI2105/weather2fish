@@ -1,7 +1,7 @@
 
 .App {
   display: grid;
-  grid-template-rows: 12% 30% 8% 50%;
+  grid-template-rows: 12% 30% 13% 45%;
   grid-template-columns: 40% 30% 30%;
   width: 100%;
   min-height: 70rem;
@@ -11,7 +11,7 @@
 
 .item1 {
   grid-row: 1;
-  grid-column: 1;
+  grid-column: 1 / span 3;
 }
 
 .item2{
@@ -23,7 +23,7 @@
   width: 98%;
   height: auto;
   grid-column: 2;
-  grid-row: 1 / span 2; 
+  grid-row: 2 / span 2; 
 
 }
 .item4{
@@ -43,9 +43,8 @@
 
 .item6{
   grid-column: 3;
-  grid-row: 1 / span 2;
-  overflow-y: hidden;
-  width: 80%;
+  grid-row: 2 / span 2;
+  width: 90%;
   height: auto;
   margin: auto;
   margin-top: 0%;
@@ -116,9 +115,9 @@
 
 .notification-container {
   position: absolute;
-  top: 6rem; 
+  top: 1rem; 
   width: 20%;
-  left: 20%;
+  left: 48%;
   transform: translateX(-50%);
   z-index: 9999; /* Ensure the notification is on top of other elements */
 }

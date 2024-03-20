@@ -1,5 +1,5 @@
 import React from 'react';
-import './assets/Weekly.css';
+import './assets/css/Weekly.css';
 
 // This component renders the weekly weather data. API is fetched in App.js and passed down here as a prop whenever the user searches for a city.
 export default function Weekly({ weeklyData }) {

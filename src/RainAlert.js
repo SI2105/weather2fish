@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./assets/RainAlert.css";
+import "./assets/css/RainAlert.css";
 
 function RainAlert({ weatherData, onClose }) {
   const getRainAlert = () => {

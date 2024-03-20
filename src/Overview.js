@@ -1,4 +1,4 @@
-import './assets/Overview.css'
+import './assets/css/Overview.css'
 export default function Overview({weatherData, city ,handleSubmit, handleInputChange}) {
   const regionNamesInEnglish = new Intl.DisplayNames(['en'], { type: 'region' }); 
   //Creates Intl.DisplayNames object that will be used for country code to full country name conversion.

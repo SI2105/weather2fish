@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './assets/WeatherAlerts.css';
+import './assets/css/WeatherAlerts.css';
 import axios from 'axios';
 import { ALERT_API_KEY } from './config';
 

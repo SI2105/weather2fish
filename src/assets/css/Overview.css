@@ -10,7 +10,7 @@
     background-repeat:no-repeat;
     background-size:cover;
     width: 98%;
-    height: auto;
+    height: 98%;
     padding-bottom: 2%;
     margin-left: 2%;
     border-radius: 1.25rem;
@@ -38,7 +38,7 @@
 
 img {
     display: block; 
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 .icons-date {
