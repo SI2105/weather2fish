@@ -59,6 +59,10 @@
     margin-top: 5%;
 }
 
+.links>img{
+    height: 2.5rem;
+}
+
 .link2{
     margin-left: 2%;
     padding-left: 0%;
