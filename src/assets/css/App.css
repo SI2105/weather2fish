@@ -69,7 +69,7 @@
   position: absolute;
   top: 1rem; 
   width: 20%;
-  left: 48%;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 9999; /* Ensure the notification is on top of other elements */
 }
