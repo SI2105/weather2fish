@@ -9,7 +9,7 @@ import { Chart } from 'chart.js/auto'; // Need to install before use -> npm inst
 import ChartDataLabels from 'chartjs-plugin-datalabels'; // Need to install before use -> npm install chartjs-plugin-datalabels
 import { API_KEY } from './config'; // Import API key from config file
 
-function Hourly({ lat, lon }) {
+function Hourly({ lat, lon, windowWidth }) {
   // State variables
   const [hourlyForecast, setHourlyForecast] = useState([]);
   const [error, setError] = useState('');
@@ -17,6 +17,7 @@ function Hourly({ lat, lon }) {
   const [chartInstance, setChartInstance] = useState(null);
 
   useEffect(() => {
+    if (!lat || lat === null) return;
     const fetchHourlyForecast = async () => { // Fetch data from OpenWeatherMap API
       try {
         const response = await axios.get(
@@ -59,7 +60,7 @@ function Hourly({ lat, lon }) {
     // Fetch hourly forcast when lat or lon changes
     fetchHourlyForecast();
 
-  }, [lat, lon]);
+  }, [lat, lon, windowWidth]);
 
 
   // Function to get wind direction based on the degree
@@ -187,8 +188,11 @@ function Hourly({ lat, lon }) {
     setChartInstance(chart);
   };
 
+if (!lat || lat === null) {
+  return <p> Enter location to view data...</p>;
+}
 
-  return (
+return (
 
     <div className='hourly-forecast-container'>
       <h2 className='title'>24 Hour Forcast<hr></hr> </h2>
@@ -247,8 +251,9 @@ function Hourly({ lat, lon }) {
         </div>
       </div>
     </div>
-  );
-  
+    
+ 
+);
 }
 
 export default Hourly;

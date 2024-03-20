@@ -27,28 +27,69 @@
 .poiContainer{
     display: flex;
     flex-direction: column;
+    margin-block: 2%;
+    gap: 1rem;
+    width: 100%;
+    /* padding-block: 2rem; */
+    border-radius: 1.25rem;
+    color: white;
+    text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
 
+.Ports{
+    display: flex;
+    flex-direction: column;
     background-color: #26A0DA;
     margin-block: 2%;
     gap: 1rem;
     width: 25%;
     padding-block: 2rem;
     border-radius: 1.25rem;
+    background-image: url(../assets/ports.jpeg);
 }
 
-.ports{
+.Fishing{
     display: flex;
     flex-direction: column;
-
     background-color: #26A0DA;
     margin-block: 2%;
     gap: 1rem;
     width: 25%;
+    padding-block: 2rem;
+    border-radius: 1.25rem;
+    background-image: url(../assets/fishing.jpeg);
 }
 
 .radiussection{
-    display: block;
     margin-left: 40%;
+    width: 20%;
+    padding-top: 0.2%;
+    padding-bottom: 0.2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontal alignment */
+    align-items: center; 
+}
+
+.radius{
+    text-align: center;
+    padding-top: 1%;
+    color: white;
+    font-weight: bold;
+    text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+     font-size: 1.5rem;
+}
+
+.slider {
+    padding-left: 30%;
 }
 
 .no_ports{
@@ -57,9 +98,11 @@
 }
 
 @media screen and (max-width:780px) {
-    .POIPage{
-        display: flex;
-        flex-direction: column;
+
+    .POIPage {
+        display: grid;
+        grid-template-columns: 1fr; /* 1 column */
+        grid-template-rows: repeat(3, auto); /* 3 rows */
     }
 
     .POIPage > .map{
@@ -69,16 +112,29 @@
     
     }
 
-    .poiContainer{
+    .Ports{
+        grid-row: 3;
         display: flex;
         flex-direction: column;
-        margin-block: 1%;
+        margin-block: 2%;
         gap: 1rem;
         width: 100%;
-        padding-block: 2%;
+        padding-block: 2rem;
         border-radius: 1.25rem;
-        
-    background-color: #26A0DA;
+        background-image: url(../assets/ports.jpeg);
     }
+
+    .Fishing{
+        display: flex;
+        flex-direction: column;
+        margin-block: 2%;
+        gap: 1rem;
+        width: 100%;
+        padding-block: 2rem;
+        border-radius: 1.25rem;
+        background-image: url(../assets/fishing.jpeg);
+    }
+      
+
     
   }

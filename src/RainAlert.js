@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import "./assets/RainAlert.css";
 
-import './assets/RainAlert.css'
-
-function RainAlert({ weatherData }) {
+function RainAlert({ weatherData, onClose }) {
   const getRainAlert = () => {
     if (!weatherData || !weatherData.list) return { type: "none" };
 
@@ -15,7 +14,7 @@ function RainAlert({ weatherData }) {
         forecast.rain && forecast.rain["3h"] ? forecast.rain["3h"] : 0;
 
       if (rainVolume > highestAlert.volume) {
-        if (rainVolume >1.5  && rainVolume <= 2.5) {
+        if (rainVolume > 1.5 && rainVolume <= 2.5) {
           highestAlert = { type: "light", volume: rainVolume };
         } else if (rainVolume > 2.5 && rainVolume <= 7.5) {
           highestAlert = { type: "moderate", volume: rainVolume };
@@ -28,7 +27,16 @@ function RainAlert({ weatherData }) {
     });
 
     return highestAlert;
+    
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onClose();
+    }, 10000); // 10 seconds 
+
+    return () => clearTimeout(timer);
+  }, [onClose]);
 
   const renderAlert = () => {
     const rainAlert = getRainAlert();
@@ -66,3 +74,4 @@ function RainAlert({ weatherData }) {
 }
 
 export default RainAlert;
+

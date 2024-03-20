@@ -16,13 +16,20 @@ function App() {
   const [city, setCity] = useState('');
   const [lat, setLat] = useState('');
   const [lon, setLon] = useState('');
+
+
   const [gradientColors, setGradientColors] = useState('');
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [radius, setRadius] = useState(10000);
+  const [showNotification, setShowNotification] = useState(true);
+
+
   const [weatherData, setWeatherData] = useState(null);
   const [portData, setPortData] = useState(null);
   const [fishingData, setFishingData] = useState(null); 
-  const [radius, setRadius] = useState(10000);
   const [weeklyData, setWeeklyData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
+
   const fetchData = useCallback(async () =>{
     try{
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}` //Replace API_KEY with your API KEY
@@ -35,6 +42,7 @@ function App() {
       setLat(coord.lat);
       setLon(coord.lon);
       setWeatherData(data);  
+      setShowNotification(true);
       
       const sunrise =new Date(data.sys.sunrise * 1000 + data.timezone * 1000);
       const sunset = new Date(data.sys.sunset * 1000 + data.timezone * 1000);
@@ -47,6 +55,10 @@ function App() {
 
     }
   }, [city])
+
+  const closeNotification = () => {
+    setShowNotification(false);
+  };
 
   const getPorts = async (radius) => {
     const response = await axios.get(`https://overpass-api.de/api/interpreter?data=[out:json];nwr[harbour](around:${radius},${weatherData.coord.lat},${weatherData.coord.lon});out center;`);  
@@ -87,6 +99,25 @@ function App() {
       getFishingPoints(radius);
     }
   }, [weatherData])
+
+  useEffect(() => {
+    fetchData(); // Fetch data for default city 'London'
+    fetchWeeklyData(); // Fetch weekly data for default city 'London'
+    fetchForecast(); // Fetch forecast data for default city 'London'
+  }, []);
+
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+  }, []);
+
+
+
+
 
   // Fetches weekly weather data from OpenWeather API and updates the state of weeklyData
   const fetchWeeklyData = useCallback(async () => {
@@ -145,9 +176,9 @@ function App() {
         break;
       //checking if it has been less than an hour after sunset
       case currentDateTime.getTime() === sunset.getTime() || (currentDateTime.getTime() > sunset.getTime() && currentDateTime.getTime() - sunset.getTime() < 3600000):
-        gradientStartColor = '#cc5500';
-        gradientMidColor = '#c70039';
-        gradientEndColor= '#581845';
+        gradientStartColor = '#fbcf67';
+        gradientMidColor = '#e85f24';
+        gradientEndColor= '#a53533';
         break;
       // weatherid: 2=Thunderstorms 781=Tornado 771=squall 762=ash
       case weatherId.startsWith('2') || weatherId === '781' || weatherId === '771' || weatherId === '762':
@@ -210,18 +241,19 @@ function App() {
         <div className='item1'>
         <Header city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
         </div>
+
         <Routes>
           <Route path="/" element={
             <>
+              <p className='notification-container'>{showNotification && (<RainAlert weatherData={forecastData} onClose={closeNotification}/>)}</p>
               <div className='item2'>
-                <RainAlert weatherData={forecastData}/>
-                {/*<WeatherAlerts key={`${lat}-${lon}`} lat={lat} lon={lon} /> */}
+                <WeatherAlerts key={`${lat}-${lon}`} lat={lat} lon={lon} /> 
               </div>
               <div className='item3'>
-                <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange}/>
+                <Overview weatherData={weatherData} city={city} handleSubmit={handleSubmit} handleInputChange={handleInputChange} Gradient={gradientColors}/>
               </div>
               <div className='item4'>
-                <Hourly lat={lat} lon={lon}/>
+                <Hourly lat={lat} lon={lon} windowWidth={windowWidth}/>
               </div>
               <div className='item5'>
                 <Weekly weeklyData={weeklyData}/>

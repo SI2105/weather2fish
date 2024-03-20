@@ -48,7 +48,7 @@ export default function Weekly({ weeklyData }) {
         </div>
         <img src={weatherIcon} alt={day.weather[0].description} />
         <b className="flex-item daily-avg-temperature">{Math.round(day.temp.day)}°C</b>
-        <p className="flex-item daily-small">High: {Math.round(day.temp.max)}°C</p>
+        <p className="flex-item daily-high">High: {Math.round(day.temp.max)}°C</p>
         <p className="flex-item daily-small">Low: {Math.round(day.temp.min)}°C</p>
         {calculateFishActivity(day)}
       </div>

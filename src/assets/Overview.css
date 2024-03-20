@@ -10,12 +10,12 @@
     background-repeat:no-repeat;
     background-size:cover;
     width: 98%;
-    height: 100%;
+    height: auto;
+    padding-bottom: 2%;
     margin-left: 2%;
     border-radius: 1.25rem;
     border-style: solid;
     box-shadow: 0.3rem 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
- 
     grid-template-areas: 
     "names icon"
     "maintemp description"

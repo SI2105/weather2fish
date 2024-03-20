@@ -45,7 +45,7 @@ const WeatherAlerts = ({ lat, lon }) => {
 
   return (
     <div className='alerts'>
-      <h2>Weather Alerts</h2>
+      <h2>Weather Warnings</h2>
       {loading ? (
         <p>Loading...</p>
       ) : (
