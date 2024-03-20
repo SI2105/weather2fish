@@ -1,0 +1,12 @@
+.tracker-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    border: 1px solid white; /* Add border */
+    padding: 8px; /* Add padding */
+  }
+  
+  .tracker-item p {
+    color: #fafafa;
+    font-size: calc(7px + 2vmin);
+  }
