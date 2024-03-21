@@ -1,7 +1,7 @@
 
 .App {
   display: grid;
-  grid-template-rows: 12% 30% 13% 45%;
+  grid-template-rows: 12% 33% 10% 45%;
   grid-template-columns: 40% 30% 30%;
   width: 100%;
   min-height: 70rem;

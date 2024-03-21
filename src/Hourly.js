@@ -195,7 +195,7 @@ if (!lat || lat === null) {
 return (
 
     <div className='hourly-forecast-container'>
-      <h2 className='title'>24 Hour Forcast<hr></hr> </h2>
+      <h2 className='title'>24 Hour Forecast<hr></hr> </h2>
       <div className='Scroll'style={{overflowX: 'scroll', width: '100%',height: '95%'}}>
         <div className='scrollable-box' style={{background: 'white',position: 'relative'}}>
 
