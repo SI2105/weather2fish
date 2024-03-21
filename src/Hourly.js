@@ -107,19 +107,21 @@ function Hourly({ lat, lon, windowWidth }) {
 
   // Function to create temperature graph using chart.js
   const renderTemperatureGraph = (forcast, offset) => {
+    // Extracting labels for x-axis (hours) and temperature data for y-axis from forecast data
     const labels = forcast.map((hour) =>
       new Date((hour.dt + offset) * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     );
     const data = forcast.map((hour) => Math.round(hour.main.temp - 273.15));
+    // Finding highest and lowest temperature from the data
     const highestTemp = Math.max(...data);
     const lowestTemp = Math.min(...data);
   
+    // Getting canvas context
     const ctx = document.getElementById('precipitation-chart').getContext('2d');
     let chart;
 
-    
     chart = new Chart(ctx, {
-      type: 'line',
+      type: 'line', // Line chart type
       data: {
         labels: labels,
         datasets: [
@@ -135,13 +137,13 @@ function Hourly({ lat, lon, windowWidth }) {
         ],
       },
       options: {
-        responsive: true,
+        responsive: true, // Make chart responsive
         maintainAspectRatio: false,
         scales: {
           y: {
             display: false,
-            min: lowestTemp - 1,
-            max: highestTemp + 1,
+            min: lowestTemp - 1, // Set minimum value for y-axis
+            max: highestTemp + 1, // Set maximum value for y-axis
             stepSize: 2,
           },
 
@@ -159,6 +161,7 @@ function Hourly({ lat, lon, windowWidth }) {
           tooltip:{
             display: true,
             callbacks: {
+              // Customize tooltip label to display temperature value
               label: function(context){
                 let label = context.dataset.label || '';
 
@@ -167,13 +170,14 @@ function Hourly({ lat, lon, windowWidth }) {
                 }
                 if (context.parsed.y !== null){
                   label += (context.parsed.y);
-                  label += '°C'
+                  label += '°C' // Add degree symbol for Celsius
                 }
                 return label;
               }
             }
           },
           datalabels: {
+            // Customize data labels to display temperature value
             formatter: (value) => value + '°C',
             color: 'black',
             anchor: 'end',

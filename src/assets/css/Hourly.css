@@ -10,6 +10,7 @@
     box-shadow: 0.3rem 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
 }
 
+/* Hide scrollbar*/
 .hourly-forecast-container::-webkit-scrollbar{
     display: none;
 }
@@ -75,11 +76,13 @@
     display: block;
 }
 
+/* Hide scrollbar*/
 .Scroll::-webkit-scrollbar{
     display: none;
 }
 
   
+/*Rotate arrow for different directions*/
 .arrow_icon.north {
     transform: rotate(0deg);
 }
@@ -112,6 +115,7 @@
     transform: rotate(315deg);
 }
 
+/*Different CSS for when the screen size changes*/
 @media screen and (max-width:780px) {
 
     .hourly-box{
