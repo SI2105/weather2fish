@@ -1,7 +1,8 @@
 
-import POI from "./POI";
+import POI from "./POI"; //Importing POI component
 
 function POIContainer({weatherData, poiData, poi_type, changeMap}){
+  // Checking if poiData exists and has elements and limiting elements to 5 if more than 5 exist
     if(poiData && poiData.elements && poiData.elements.length > 5){
       poiData.elements = poiData.elements.slice(0,5)
       console.log(poiData)
@@ -10,8 +11,9 @@ function POIContainer({weatherData, poiData, poi_type, changeMap}){
     return(
         <div className="poiContainer">
           <h2>{poi_type}</h2>
-          {poiData && poiData.elements && (
-            poiData.elements.map((poi, i) => (
+          {/* Checking if poiData exists and has elements */}
+          {poiData && poiData.elements && ( 
+            poiData.elements.map((poi, i) => ( 
               <POI poi={poi} weatherData={weatherData} key={i} changeMap={changeMap} />)
             )
           )
@@ -23,6 +25,7 @@ function POIContainer({weatherData, poiData, poi_type, changeMap}){
             )
           }
 
+          {/* Displaying a loading message if POI data is not yet available */}
           {
             !poiData && (<h3>Loading Data ...</h3>)
           }
