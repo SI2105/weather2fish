@@ -65,14 +65,14 @@
     
 }
 
-.red-activity {
+.low-activity {
     color:rgb(232, 37, 37);
 }
 
-.orange-activity {
+.medium-activity {
     color:rgb(255, 174, 24);
 }
 
-.green-activity {
+.high-activity {
     color:rgb(26, 193, 26);
 }
