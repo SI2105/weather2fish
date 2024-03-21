@@ -75,6 +75,25 @@
 }
 
 
+@media screen and (max-width:780px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: 10%;
+    gap: 5%;
+    min-height: 80rem;
+  }
+
+  .item2{
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  
+}
+
 
 .App-logo {
   height: 40vmin;
@@ -111,25 +130,6 @@
   }
 }
 
-@media screen and (max-width:780px) {
-  .App {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-right: 10%;
-    gap: 5%;
-    min-height: 80rem;
-  }
+/* CSS for when the screen size decreases*/
 
-  .item2{
-    grid-column: 1;
-    grid-row: 2;
-    margin-top: 2%;
-    margin-bottom: 2%;
-  }
-
-  
-
-  
-}
 

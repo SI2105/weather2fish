@@ -1,3 +1,4 @@
+//Importing required files
 import { useState, useEffect, useCallback } from 'react';
 import './assets/css/App.css';
 import Header from './Header';
@@ -14,6 +15,7 @@ import { API_KEY } from './config';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 
 function App() {
+  //state Variables
   const [city, setCity] = useState('');
   const [lat, setLat] = useState('');
   const [lon, setLon] = useState('');
@@ -31,6 +33,7 @@ function App() {
   const [weeklyData, setWeeklyData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
 
+  //Function to fetch weather data
   const fetchData = useCallback(async () =>{
     try{
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}` //Replace API_KEY with your API KEY
@@ -39,12 +42,14 @@ function App() {
         throw new Error('Network response was not ok');
       }
       const data = await response.json()
+      //Extract coordinates from response
       const{coord} = data;
       setLat(coord.lat);
       setLon(coord.lon);
       setWeatherData(data);  
       setShowNotification(true);
       
+      //Calculate sunrise,sunset and current time of location
       const sunrise =new Date(data.sys.sunrise * 1000 + data.timezone * 1000);
       const sunset = new Date(data.sys.sunset * 1000 + data.timezone * 1000);
       const current_time = new Date(data.dt * 1000 + data.timezone * 1000);
@@ -57,10 +62,12 @@ function App() {
     }
   }, [city])
 
+  //Function to close notification which is just a 10 second pop up
   const closeNotification = () => {
     setShowNotification(false);
   };
 
+  //Function to get ports within a specified radius
   const getPorts = async (radius) => {
     const response = await axios.get(`https://overpass-api.de/api/interpreter?data=[out:json];nwr[harbour](around:${radius},${weatherData.coord.lat},${weatherData.coord.lon});out center;`);  
     const data = response.data
@@ -77,6 +84,8 @@ function App() {
     console.log(data)
     return data
   }
+
+  //Function to get fishing ports within a specified radius
   const getFishingPoints = async (radius) => {
     const response = await axios.get(`https://overpass-api.de/api/interpreter?data=[out:json];nwr[fishing](around:${radius},${weatherData.coord.lat},${weatherData.coord.lon});out qt center;`);  
     const data = response.data
@@ -93,6 +102,8 @@ function App() {
     console.log(data)
     return data
   }
+
+  // Effect to fetch ports and fishing points when weather data changes
   useEffect(()=>{
     
     if(weatherData){
@@ -102,22 +113,20 @@ function App() {
   }, [weatherData])
 
   useEffect(() => {
-    fetchData(); // Fetch data for default city 'London'
-    fetchWeeklyData(); // Fetch weekly data for default city 'London'
-    fetchForecast(); // Fetch forecast data for default city 'London'
+    fetchData();
+    fetchWeeklyData(); 
+    fetchForecast(); 
   }, []);
 
 
 
+  //Function to check when window size changes
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
     window.addEventListener('resize', handleResize);
   }, []);
-
-
-
 
 
   // Fetches weekly weather data from OpenWeather API and updates the state of weeklyData

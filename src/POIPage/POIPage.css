@@ -97,6 +97,7 @@
     text-align: center;
 }
 
+/*Different css for when the screen size changes*/
 @media screen and (max-width:780px) {
 
     .POIPage {
