@@ -44,8 +44,8 @@
 .item6{
   grid-column: 3;
   grid-row: 2 / span 2;
-  width: 90%;
-  height: auto;
+  width: 97%;
+  height: 97%;
   margin: auto;
   margin-top: 0%;
   padding-top: 2%;
@@ -69,7 +69,7 @@
   position: absolute;
   top: 1rem; 
   width: 20%;
-  left: 48%;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 9999; /* Ensure the notification is on top of other elements */
 }
